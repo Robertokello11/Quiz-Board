@@ -8,9 +8,13 @@ var questions = [
 ];
 function _(x) {
      return document.getElementById(x);
+     
 }
 function renderQuestion() {
+   
     test = _("test");
+    
+
     _("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
     question = questions[pos] [0];
      chA = questions[pos] [1];
@@ -23,8 +27,9 @@ function renderQuestion() {
      test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
      test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br>";
      test.innerHTML += "<input type='radio' name='choices' value='D'> "+chD+"<br>";
-     test.innerHTML += "<input type='radio' name='choices' value='E'> "+chE+"<br>";
      test.innerHTML += "<button onclick='checkAnswer()'>submit Answer</button>";
+
+    
 }
 function checkAnswer() {
    choices = document.getElementsByName("choices");
@@ -38,12 +43,6 @@ function checkAnswer() {
    }
    pos++;
    renderQuestion();
-   if(pos >= question.length){
-    test.innerHTML = "<h2>You have "+correct+" of "+questions.length+" questions correct</h2>";
-   _("test_status").innerHTML = "Test completed";
-   pos = 0;
-   correct= 0; 
-}
-
+   
 }
 window.addEventListener("load", renderQuestion, false)
