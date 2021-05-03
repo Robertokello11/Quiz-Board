@@ -16,8 +16,8 @@ function renderQuestion() {
     if(pos >= questions.length){
         test.innerHTML = "<h2>You have "+correct+" of "+questions.length+" questions correct</h2>";
        _("test_status").innerHTML = "Test completed";
-       pos = 0;
-       correct= 0; 
+       pos = 1;
+       correct = 0;
        return false;
     }
    
