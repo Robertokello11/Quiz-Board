@@ -11,10 +11,6 @@ function _(x) {
 }
 function renderQuestion() {
     test = _("test");
-    if(pos >= question.length){
-        test.innerHTML = "<h2>You have "+correct+" of "+questions.length+" questions correct</h2>";
-       _("test_status").innerHTML = "Test completed";
-    }
     _("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
     question = questions[pos] [0];
      chA = questions[pos] [1];
@@ -23,11 +19,11 @@ function renderQuestion() {
      chD = questions[pos] [4];
      chE = questions[pos] [5];
      test.innerHTML = "<h3>"+question+"</h3>";
-     test.innerHTML += "<input type='radio' name='choices' value='A'> "+chB+"<br>";
+     test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
      test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
-     test.innerHTML += "<input type='radio' name='choices' value='C'> "+chD+"<br>";
-     test.innerHTML += "<input type='radio' name='choices' value='D'> "+chA+"<br>";
-     test.innerHTML += "<input type='radio' name='choices' value='E'> "+chA+"<br>";
+     test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br>";
+     test.innerHTML += "<input type='radio' name='choices' value='D'> "+chD+"<br>";
+     test.innerHTML += "<input type='radio' name='choices' value='E'> "+chE+"<br>";
      test.innerHTML += "<button onclick='checkAnswer()'>submit Answer</button>";
 }
 function checkAnswer() {
@@ -37,11 +33,17 @@ function checkAnswer() {
            choice = choices[i].nodeValue;
        }
    }
-   if(choice == questions[pos] [5]) {
+   if(choice == questions[pos] [4]) {
        correct++
    }
    pos++;
    renderQuestion();
+   if(pos >= question.length){
+    test.innerHTML = "<h2>You have "+correct+" of "+questions.length+" questions correct</h2>";
+   _("test_status").innerHTML = "Test completed";
+   pos = 0;
+   correct= 0; 
+}
 
 }
 window.addEventListener("load", renderQuestion, false)
