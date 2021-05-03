@@ -11,6 +11,9 @@ function _(x) {
 }
 function renderQuestion() {
     test = _("test");
+    if(pos >= question.length){
+        test.innerHTML = <h2></h2>
+    }
     _("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
     question = questions[pos] [0];
      chA = questions[pos] [1];
