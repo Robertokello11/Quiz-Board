@@ -14,7 +14,13 @@ function renderQuestion() {
    
     test = _("test");
     
-
+    if(pos >= question.length){
+        test.innerHTML = "<h2>You have "+correct+" of "+questions.length+" questions correct</h2>";
+       _("test_status").innerHTML = "Test completed";
+       pos = 0;
+       correct= 0; 
+       return false;
+    } 
     _("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
     question = questions[pos] [0];
      chA = questions[pos] [1];
@@ -36,7 +42,7 @@ function checkAnswer() {
    for(var i=0; i<choices.length; i++) {
        if(choices[i].checked) {
            choice = choices[i].nodeValue;
-       }
+       } 
    }
    if(choice == questions[pos] [4]) {
        correct++
