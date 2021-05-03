@@ -28,5 +28,16 @@ function renderQuestion() {
 }
 function checkAnswer() {
    choices = document.getElementsByName("choices");
-   for(var i=0; i<)
+   for(var i=0; i<choices.length; i++) {
+       if(choices[i].checked) {
+           choice = choices[i].nodeValue;
+       }
+   }
+   if(choice == questions[pos] [5]) {
+       correct++
+   }
+   pos++;
+   renderQuestion();
+
 }
+window.addEventListener("load", renderQuestion, false)
