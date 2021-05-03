@@ -13,3 +13,8 @@ div#test{
 .quiz{
     color: azure;
 }
+.footer{
+    border: #000 1px solid;
+    padding: 10px 4px 4px 4px; 
+    width: 10px 10px;
+}
