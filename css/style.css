@@ -18,3 +18,9 @@ div#test{
     padding: 10px 4px 4px 4px; 
     width: 10px 10px;
 }
+#foot{
+    color:violet;
+    font-size: larger;
+    text-align: center;
+    font-weight: 500;
+}
